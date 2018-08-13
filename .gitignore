@@ -1,0 +1,28 @@
+*.so
+*.egg
+*.egg-info
+dist
+build
+
+# database
+**/db.*
+**/migrations/*
+!**/migrations/__init__.py
+
+# pycharm
+**/.idea/*
+
+# windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# selenium driver
+geckodriver.log
+
+# mac
+.DS_Store
+
+# node 
+**/node_modules
+
