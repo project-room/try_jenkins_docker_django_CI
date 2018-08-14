@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Precheck') {
             agent any 
-            enviroment {
+            environment {
                 MY_ENV = 'my_env'
             }
             steps {
