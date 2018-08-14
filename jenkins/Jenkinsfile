@@ -18,8 +18,8 @@ pipeline {
     }
 
     post {
-        agent any
         always {
+            agent any
             sh 'echo "Current images:'
             sh 'curl http://176.122.188.100:16000/v2/test/tags/list'
         }
