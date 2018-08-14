@@ -5,11 +5,11 @@ pipeline {
         stage('Build base image') {
             agent {
                 docker {
-                    image 'bash'
+                    image '176.122.188.100:16000/django_base_image:0.2'
                 }
             }
             steps {
-                sh 'echo "Hello Jenkins"'
+                sh 'docker build -t test:0.1.1 .'
             }
         }
     }
