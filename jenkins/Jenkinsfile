@@ -8,7 +8,7 @@ pipeline {
                 MY_ENV = 'my_env'
             }
             steps {
-                sh 'echo "#${env.BUILD_NUM} Running ${env.BUILD_ID} on ${env.JENKINS_URL}"'
+                sh 'echo "#${env.BUILD_NUMBER} Running ${env.BUILD_ID} on ${env.JENKINS_URL}"'
                 sh 'echo "${env.MY_ENV}"'
             }
         }
