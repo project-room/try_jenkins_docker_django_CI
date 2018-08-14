@@ -8,6 +8,7 @@ pipeline {
                 MY_ENV = 'my_env'
             }
             steps {
+                sh 'echo ${BUILD_NUMBER}'
                 sh 'printenv'
             }
         }
