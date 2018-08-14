@@ -3,6 +3,11 @@ pipeline {
 
     stages {
         stage('Build base image') {
+            agent {
+                docker {
+                    image 'echo'
+                }
+            }
             steps {
                 sh 'echo "Hello Jenkins"'
             }
