@@ -13,15 +13,9 @@ pipeline {
             agent any
             steps {
                 sh 'docker push 176.122.188.100:16000/test:${BUILD_NUMBER}'
+                sh 'echo "Current images:'
+                sh 'curl http://176.122.188.100:16000/v2/test/tags/list'
             }
-        }
-    }
-
-    post {
-        always {
-            agent any
-            sh 'echo "Current images:'
-            sh 'curl http://176.122.188.100:16000/v2/test/tags/list'
         }
     }
 }
