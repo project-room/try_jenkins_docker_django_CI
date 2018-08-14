@@ -8,8 +8,7 @@ pipeline {
                 MY_ENV = 'my_env'
             }
             steps {
-                sh 'echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"'
-                sh 'echo "${MY_ENV}"'
+                sh 'printenv'
             }
         }
 
