@@ -5,7 +5,7 @@ pipeline {
         stage('Build base image') {
             agent {
                 docker {
-                    image 'echo'
+                    image 'bash'
                 }
             }
             steps {
