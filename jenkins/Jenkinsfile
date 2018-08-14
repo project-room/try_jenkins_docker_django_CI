@@ -5,7 +5,14 @@ pipeline {
         stage('Build image') {
             agent any
             steps {
-                sh 'docker build -t test:0.1.1 .'
+                sh 'docker build -t 176.122.188.100:16000/test .'
+            }
+        }
+
+        stage('Push image') {
+            agent any
+            steps {
+                sh 'docker push 176.122.188.100:16000/test:latest'
             }
         }
     }
