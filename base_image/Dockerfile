@@ -1,8 +1,8 @@
-FROM python:3.5-alpine
+FROM python:3.5-slim
 
-RUN echo "更换 Debian 源为中科大源" && \
-    sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list && \    
-    echo "更新 apt 源" && \
-    apt-get update
+RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list && \
+    apt-get update && \
+    apt-get install -y vim wget curl net-tools libmysql++-dev gcc && \
+    pip3 install django==1.11 mysqlclient
 
 CMD ["python3"]
