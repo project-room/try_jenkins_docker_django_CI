@@ -80,5 +80,70 @@ sudo docker run -d -p 16000:5000 --name docker-registry --restart=always -v /var
 
 ```sh
 sudo docker run -it -d -u root -p 16010:8080 -v /var/www/jenkins/data:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock -v "$HOME":/home --name jenkins  --restart=always jenkinsci/blueocean
-
 ```
+
+查看管理员初始密码:
+
+```sh
+sudo docker exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+```
+
+## 3. 在 jenkins 上新建一个 webhook
+
+_要求_: 
+    
+    1. Jenkins 需要安装 Git plugin
+    2. Jenkins 服务器有公网 IP
+
+### 3.1 配置 Jenkins Hook
+
+1. 在 Jenkins `系统管理/系统设置/GitHub/GitHub Servers` 选项中, 点击高级添加 GitHub 服务器选项, 点击 `Override Hook URL` 来启用 Hook URL. 复制该 URL
+2. 在 GitHub 上 项目 `settings/Webhooks/` 页面点击 `Add Webhook`, 添加新的 webhook 并自定义事件.
+3. 配置 Jenkins 构建动作
+
+
+
+
+
+
+
+
+```groovy
+    stage('Precheck') {
+            agent any 
+            environment {
+                MY_ENV = 'my_env'
+            }
+            steps {
+                sh 'echo ${BUILD_NUMBER}'
+                sh 'printenv'
+            }
+        }
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
